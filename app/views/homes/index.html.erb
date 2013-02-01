@@ -1,0 +1,118 @@
+
+
+<style>
+.container {
+  /* defaults for resposive height container */
+  position: relative;
+  width: 100%;
+  height: 125px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.iosSlider {
+  width: 100%;
+  height: 300px;
+}
+
+.iosSlider .slider {
+  width: 100%;
+  height: 100%;
+}
+
+.iosSlider .slider .item {
+  float: left;
+  width: 125px;
+}
+
+.iosSlider .slider .item img {
+  width: 125%;
+  height: 125px;
+}
+
+.container .prev {
+  position: absolute;
+  top: 65px;
+  left: -60px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  z-index: 10;
+}
+
+.container .next {
+  position: absolute;
+  top: 65px;
+  right: -60px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  z-index: 10;
+}
+
+.container .unselectable {
+  opacity: 0.2;
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+      $(document).ready(function() {
+        
+        $('.iosSlider').iosSlider({
+          snapToChildren: true,
+          desktopClickDrag: true,
+          keyboardControls: true,
+          onSliderLoaded: sliderTest,
+          onSlideStart: sliderTest,
+          onSlideComplete: slideComplete,
+          navNextSelector: $('.next'),
+            navPrevSelector: $('.prev'),
+        });
+        
+      });
+      
+      function sliderTest(args) {
+        try {
+          console.log(args);
+        } catch(err) {
+        }
+      }
+      
+      function slideComplete(args) {
+      
+        $('.next, .prev').removeClass('unselectable');
+        
+          if(args.currentSlideNumber == 1) {
+      
+              $('.prev').addClass('unselectable');
+      
+          } else if(args.currentSliderOffset == args.data.sliderMax) {
+      
+              $('.next').addClass('unselectable');
+      
+          }
+      
+      }
+    </script>
+
+
+     <% @agencies.each do |agency| %>
+
+    <div class="agencytitle"> <%= agency.name %> </div>
+
+    <div class = 'container'>    
+        <div class = 'iosSlider'>
+           <div class = 'slider'>
+            <% agency.projects.each do |project| %>
+              <div class = 'item'><%= link_to image_tag(project.grid_image), project_path(project) %></div>
+            <%end%>
+</div></div></div>
+   
+
+      <%end%>
+
+   
+      
