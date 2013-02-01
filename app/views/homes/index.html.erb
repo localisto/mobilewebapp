@@ -107,7 +107,16 @@
         <div class = 'iosSlider'>
            <div class = 'slider'>
             <% agency.projects.each do |project| %>
+            <% if agency.id == 6 %>
+            <% if project.id > 40 %>
               <div class = 'item'><%= link_to image_tag(project.grid_image), project_path(project) %></div>
+            <%else%>
+            <%end%>
+
+          <%else %>
+                        <div class = 'item'><%= link_to image_tag(project.grid_image), project_path(project) %></div>
+
+<%end%>
             <%end%>
 </div></div></div>
    
