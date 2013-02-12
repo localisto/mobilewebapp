@@ -1,0 +1,10 @@
+
+
+development:
+API_HOST: dfsd
+API_USER_EMAIL: email
+API_USER_PASSWORD: pw
+
+test:
+
+production:

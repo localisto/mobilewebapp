@@ -2,14 +2,13 @@ class Question < ActiveRecord::Base
 
 
 
-  before_update :update_image_fieldu
-  after_create :update_image_field
+
 	
 	acts_as_list 
     self.table_name = 'question'
 
   belongs_to :project
-  has_many :responces, :dependent => :destroy
+  has_many :response, :dependent => :destroy
 
  
   attr_accessible :aoi_id, :description, :image, :sort_order, :qtype, :project_id, :image_url
@@ -28,17 +27,9 @@ class Question < ActiveRecord::Base
 
 
   
+ 
 
 
- private
-  def update_image_field      
- self.image_url = self.image.url
-  self.save
-  end
-
-   def update_image_fieldu     
-self.image_url = self.image.url
-  end
 
 
 

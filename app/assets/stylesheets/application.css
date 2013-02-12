@@ -12,3 +12,433 @@
  *= require_tree .
 
  */
+
+.body {margin-top: 20px;}
+
+.clear {clear:both;}
+
+/* ---- Project Screen --*/
+
+#imgquestionscreen {}
+#imgquestionscreen h3 {
+	text-align: center; width: 100%; 
+	background: gray; 
+	text-shadow: none;
+	color: white;
+	margin: 0px;
+	padding: 7px;}
+
+#meeting span { color:green;}
+#meeting .time {}
+#meeting .place {}
+
+
+
+/* ---- Home Screen --*/
+
+#homescreen .container {
+  /* defaults for resposive height container */
+  position: relative;
+  width: 100%;
+  height: 125px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#homescreen .iosSlider {
+  width: 100%;
+  height: 300px;
+}
+
+#homescreen .iosSlider .slider {
+  width: 100%;
+  height: 100%;
+}
+
+#homescreen .iosSlider .slider .item {
+  float: left;
+  width: 125px;
+}
+
+#homescreen .iosSlider .slider .item img {
+  width: 125%;
+  height: 125px;
+}
+
+#homescreen .container .prev {
+  position: absolute;
+  top: 65px;
+  left: -60px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  z-index: 10;
+}
+
+#homescreen .container .next {
+  position: absolute;
+  top: 65px;
+  right: -60px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  z-index: 10;
+}
+
+#homescreen .container .unselectable {
+  opacity: 0.2;
+}
+
+
+/* --------------- #project --------------*/
+
+
+#project .container {
+  /* defaults for resposive height container */
+  position: relative;
+  width: 100%;
+  height: 0;
+  
+  /* 39% being the ratio we are maintaining 
+   * calculated by looking at the image 
+   * ratio: 400/1024 = ~0.39 */
+  padding: 0 0 39% 0;
+}
+
+ #project .iosSlider {
+  width: 100%;
+  
+  /* this height ends up being your maximum height, 
+   * if you want it to scale forever, set it to 
+   * a very high number */
+  height: 1500px;
+}
+
+#project .iosSlider .slider {
+  width: 100%;
+  height: 100%;
+}
+
+#project .iosSlider .slider .item {
+  float: left;
+  
+  width: 100%;
+}
+
+#project  .iosSlider .slider .item img {
+  width: 100%;
+  height: auto;
+}
+
+/* controls */
+#project .container .prevContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#project .container .prevContainer .prev {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+ #project .container .nextContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#project .container .nextContainer .next {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+#project .container .selectorsBlock {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 5%;
+}
+
+#project .container .selectorsBlock .selectors {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 12%;
+  height: 100%;
+}
+
+#project .container .selectorsBlock .selectors .item {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 16%;
+  height: 100%;
+  margin: 0 0 0 5%;
+  background: #aaa;
+}
+
+#project .container .selectorsBlock .selectors .selected {
+  background: #333;
+}
+
+#project .container .selectorsBlock .selectors .first {
+  margin-left: 0;
+}
+
+
+/* --------------- #imgquestion --------------*/
+
+
+#imgquestion .container {
+  /* defaults for resposive height container */
+  position: relative;
+  width: 100%;
+  height: 0;
+  
+  /* 39% being the ratio we are maintaining 
+   * calculated by looking at the image 
+   * ratio: 400/1024 = ~0.39 */
+  padding: 0 0 39% 0;
+}
+
+ #imgquestion .iosSlider {
+  width: 100%;
+  
+  /* this height ends up being your maximum height, 
+   * if you want it to scale forever, set it to 
+   * a very high number */
+  height: 1500px;
+}
+
+#imgquestion .iosSlider .slider {
+  width: 100%;
+  height: 100%;
+}
+
+#imgquestion .iosSlider .slider .item {
+  float: left;
+  
+  width: 100%;
+}
+
+#imgquestion .iosSlider .slider .item img {
+  width: 100%;
+  height: auto;
+}
+
+/* controls */
+#imgquestion .container .prevContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#imgquestion .container .prevContainer .prev {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+ #imgquestion .container .nextContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#imgquestion .container .nextContainer .next {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+#imgquestion .container .selectorsBlock {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 5%;
+}
+
+#imgquestion .container .selectorsBlock .selectors {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 12%;
+  height: 100%;
+}
+
+#imgquestion .container .selectorsBlock .selectors .item {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 16%;
+  height: 100%;
+  margin: 0 0 0 5%;
+  background: #aaa;
+}
+
+#imgquestion .container .selectorsBlock .selectors .selected {
+  background: #333;
+}
+
+#imgquestion .container .selectorsBlock .selectors .first {
+  margin-left: 0;
+}
+
+/* --------------- #txtquestion --------------*/
+
+
+#txtquestion .container {
+  /* defaults for resposive height container */
+  position: relative;
+  width: 100%;
+  height: 0;
+  
+  /* 39% being the ratio we are maintaining 
+   * calculated by looking at the image 
+   * ratio: 400/1024 = ~0.39 */
+  padding: 0 0 39% 0;
+}
+
+ #txtquestion .iosSlider {
+  width: 100%;
+  
+  /* this height ends up being your maximum height, 
+   * if you want it to scale forever, set it to 
+   * a very high number */
+  height: 1500px;
+}
+
+#txtquestion .iosSlider .slider {
+  width: 100%;
+  height: 100%;
+}
+
+#txtquestion .iosSlider .slider .item {
+  float: left;
+  
+  width: 100%;
+}
+
+#txtquestion .iosSlider .slider .item  {
+  width: 100%;
+  height: auto;
+}
+
+/* controls */
+#txtquestion .container .prevContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#txtquestion .container .prevContainer .prev {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+ #txtquestion .container .nextContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  
+  padding: 0 0 19.5% 0;
+  z-index: 10;
+}
+
+#txtquestion .container .nextContainer .next {
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: #aaa;
+}
+
+#txtquestion .container .selectorsBlock {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 5%;
+}
+
+#txtquestion .container .selectorsBlock .selectors {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 12%;
+  height: 100%;
+}
+
+#txtquestion .container .selectorsBlock .selectors .item .response {
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 16%;
+  height: 100%;
+  margin: 0 0 0 5%;
+  background: #aaa;
+}
+
+#txtquestion .container .selectorsBlock .selectors .selected {
+  background: #333;
+}
+
+#txtquestion .container .selectorsBlock .selectors .first {
+  margin-left: 0;
+}
+
+#txtquestion .response {padding: 0px; margin: 42px; border:; solid 1px gray; }
+.rounded-corners {
+     -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+

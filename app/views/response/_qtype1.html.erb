@@ -1,0 +1,128 @@
+
+
+
+
+	<script type="text/javascript">
+	
+
+
+			
+			function slideChange(args) {
+			
+				try {
+					console.log('changed: ' + (args.currentSlideNumber - 1));
+				} catch(err) {
+				}
+			
+			}
+
+	
+  
+  var arr = [
+  <% @question.response.each do |r| %>
+  <%= r.id %>,
+  <% end %> ];
+  	//$("#test").text(arr[0]);
+
+	//	function slideChange(args) {
+	//$("#test").text(arr[(args.currentSlideNumber - 1)]); };
+
+		
+		function slideChange(args) {
+	
+   $('input#result_answer_id').val(arr[(args.currentSlideNumber - 1)]); };
+	</script> 
+
+<%= image_tag @question.image_url %>
+<br>
+<br>
+<br>
+		
+
+		
+<div id="txtquestion">
+
+
+		
+			<div class = 'container'>
+
+					<div class = 'iosSlider'>
+					
+						<div class = 'slider'>
+
+
+  
+				<% @question.response.each do |r| %>
+				
+
+				<div class = 'item'><div class="response rounded-corners"><%= r.description %></div></div>
+				
+			<% end %>
+					</div>
+
+	<div class = 'selectorsBlock'>
+				
+						<div class = 'selectors'>
+							<% @question.response.each_with_index do |r, i|  %>
+							<% if i==0 %>
+							<div class = 'item first selected'></div>
+							<%else %>
+							<div class = 'item'></div>
+							<%end%>
+							<% end %>
+						</div>
+
+
+					</div>
+					
+					</div>
+					
+				</div>
+			
+			</div>
+		
+		</div>
+
+
+<br>
+<%= form_for :result, :url => { :controller => :results, :action => :create}  do |f| %>
+  
+   
+    <%= f.hidden_field(:user_id, :value => '44') %>
+
+  
+    <%# f.text_field :answer_id  %>
+
+ <%= f.hidden_field(:answer_id, :value => @question.response.first.id) %>
+   
+
+   
+   
+
+<%= f.submit "Choose" %>
+
+
+
+		
+
+
+	
+
+	 <div data-role="footer" data-position="fixed" >
+      <div data-role="navbar">
+		<ul>
+			<li><a data-icon="grid" href="#">Previous</a></li>
+			<li></li>
+			<li><a data-icon="star" href="#">Help</a> </li>
+		</ul>
+	</div><!-- /navbar -->
+    </div>
+<% end %>
+
+</div> 
+
+
+
+
+
+

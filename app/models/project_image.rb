@@ -3,7 +3,8 @@ class ProjectImage < ActiveRecord::Base
 
   self.table_name = 'project_image'
   acts_as_list
-  attr_accessible :project_id, :image
+  attr_accessible :project_id, :image, :image_url
+  belongs_to :project
 
   #has_attached_file :image
 

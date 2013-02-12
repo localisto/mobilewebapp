@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 before_filter :agency_rights
 
 def agency_rights
- #@agency = Agency.find(params[:agency_id])
+ #@@agency = Agency.find(params[:agency_id])
 end
 
 
@@ -14,11 +14,10 @@ end
 
 def index
     
-    @projects = @agency.projects.find(:all, :offset => 40, :limit => 10)
+    #@projects = @agency.projects.get_active
+    #@projects = Projects.get_active
 
-
-
-  end
+end
 
    def show
 

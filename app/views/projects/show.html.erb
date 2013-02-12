@@ -1,7 +1,83 @@
 
 
-<%= image_tag @project.grid_image %>
 
-<h1><%= @project.title %> </h1>
 
-<p><%= @project.description %></p>
+
+<div id="project" data-role="page"> 
+
+
+
+	
+	<div  data-role="header" data-position="fixed" >
+		<a href="/" data-icon="Back">Back</a>
+		<h1>Localisto</h1>
+	</div>
+
+	
+	<div style="padding:0px;" data-role="content">
+		<div id="projectscreen">
+
+		<h3><%= @project.title %></h3>
+			<div class = 'container'>
+				<div class = 'iosSlider'>
+					
+					<div class = 'slider'>
+						<% @project.project_images.each do |image| %>
+							<div class = 'item'><%= image_tag image.image_url %></div>
+						<% end %>	
+				
+					</div>
+					
+					<div class = 'selectorsBlock'>
+				
+						<div class = 'selectors'>
+							<% @project.project_images.each_with_index do |image, i|  %>
+							<% if i==0 %>
+							<div class = 'item first selected'></div>
+							<%else %>
+							<div class = 'item'></div>
+							<%end%>
+							<% end %>
+						</div>
+
+					</div>
+
+				</div>
+						
+			</div>
+
+		<div id="meeting">
+			<span>Meeting</span>
+			<div class="time"><%= @project.meeting_time %></div>
+			<div class="place"><%= simple_format(@project.location) %></div>
+		</div>
+ 		
+ 		<p><%= @project.description %></p>
+
+		<%= button_to_contribute(@project) %> 
+
+
+
+		</div>
+
+
+	</div>
+
+	 <div data-role="footer" data-position="fixed" >
+        <h4>Page Footer</h4>
+    </div>
+
+
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+

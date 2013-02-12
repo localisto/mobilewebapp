@@ -1,0 +1,35 @@
+
+
+<div id="question" data-role="page"> 
+	
+	<div  data-role="header" data-position="fixed" >
+		<a href="/" data-icon="Back">Back</a>
+	<h1>Localisto</h1>
+	</div>
+
+	<div style="padding:0px;" data-role="content">
+
+
+
+
+
+
+<% if @question.qtype == '1' %>
+<%= render :partial => "response/qtype1" %> 
+
+<% elsif @question.qtype == '2' %>
+<%= render :partial => "response/qtype2" %> 
+
+<% elsif @question.qtype == '3' %>
+<%= render :partial => "response/qtype3" %> 
+<% end %>
+<br>
+
+
+
+
+
+
+
+
+
