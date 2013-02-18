@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+
+%body
+  %h1 Submit a video:
+  = form_for :aoichoice, :url => aoiquestion_aoichoices_path(params[:aoiquestion_id]) do |f|
+    %p
+      = f.label "Youtube URL" , "URL:"
+      = f.text_field 'data', :size => 40
+    %p
+    %div
+      = submit_tag "Submit!"

@@ -21,7 +21,9 @@
 <%= render :partial => "response/qtype2" %> 
 
 <% elsif @question.qtype == '3' %>
-<%= render :partial => "response/qtype3" %> 
+<%= aoiquestion(@question.aoi_id) %>
+<%# %>
+<%# render :partial => "response/qtype3" %> 
 <% end %>
 <br>
 

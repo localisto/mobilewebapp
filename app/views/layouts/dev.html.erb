@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <title>MobileLocalisto</title>
+
+	 <%= stylesheet_link_tag    "application", :media => "all" %>
+
+	<%= javascript_include_tag "http://code.jquery.com/jquery-1.8.2.min.js" %>
+ 	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" %>
+	<%# javascript_include_tag "http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js" %>
+	<%= javascript_include_tag "application" %>
+
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= yield %>
+
+</body>
+
+<script>
+
+//function hideAddressBar()
+//{
+//if(!window.location.hash)
+//{
+//if(document.height < window.outerHeight)
+//{
+//document.body.style.height = (window.outerHeight + 50) + 'px';
+//}
+ //
+//setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+//}
+//}
+ 
+//window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+//window.addEventListener("orientationchange", hideAddressBar );</script>
+</html>

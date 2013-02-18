@@ -1,6 +1,10 @@
-class Aoiquestion < ActiveRecord::Base
-   self.site = API_HOST
-   self.user = API_USER_EMAIL
-   self.password = API_USER_PASSWORD
+class Aoiquestion < ActiveResource::Base
+   self.site = Settings.api_host
+   self.element_name = "question"
+   self.format = :xml
+   self.user = Settings.api_user_email
+   self.password = Settings.api_user_password
    attr_accessor :name, :question_text, :ideas, :url, :information, :email, :password
+   #has_many: aoichoices
+   #has_many: aoiquestions
 end

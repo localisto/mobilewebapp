@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title API Test
+  %body
+    %h1 Choices
+    %table{:border => "1"}
+      %tr
+      - @fields.each do |k|
+        %th= k
+      %th active
+      - @choices.each do |c|
+        %tr
+        - @fields.each do |k|
+          %td= c.attributes[k]
+        %td= button_to "toggle", :action => :toggle, :id => c.id, :question_id => c.question_id

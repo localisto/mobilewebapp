@@ -1,0 +1,70 @@
+
+      <div id="question" data-role="page"> 
+	
+	<div  data-role="header" data-position="fixed" >
+		<a href="/" data-icon="Back">Back</a>
+	<h1>Localisto</h1>
+	</div>
+
+	<div style="padding:0px;" data-role="content">
+
+
+
+	
+
+<%= @name %>
+<br>
+<br>
+<br>
+	<%= button_to @left, :action => "vote",
+      :question_id => @question_id,
+      :appearance_lookup => @appearance_lookup,
+      :direction => 'left',
+      :id => @prompt_id,
+      :form_class => "testthinkg"
+       %>
+
+      <%= button_to @right, :action => "vote",
+      :question_id => @question_id,
+      :appearance_lookup => @appearance_lookup,
+      :direction => 'right',
+      :id => @prompt_id %>	
+      <br><br>
+
+<%= button_to "add your own", new_aoiquestion_aoichoice_path(@question), :method => :get %>
+
+ <br><br>
+      <%= button_to "I like both ideas", :action => "skip",
+      :question_id => @question_id,
+      :appearance_lookup => @appearance_lookup,
+      :reason => "I like both ideas",
+      :id => @prompt_id %>	
+
+      <%= button_to "I don't like either idea", :action => "skip",
+      :question_id => @question_id,
+      :appearance_lookup => @appearance_lookup,
+      :reason => "I don't like either idea",
+      :id => @prompt_id %>	
+
+         <%= button_to "I don't know enough", :action => "skip",
+      :question_id => @question_id,
+      :appearance_lookup => @appearance_lookup,
+      :reason => "I don't know enough",
+      :id => @prompt_id %>	
+	
+
+	 <div data-role="footer" data-position="fixed" >
+      <div data-role="navbar">
+		<ul>
+			<li><a data-icon="grid" href="#">Previous</a></li>
+			<li></li>
+			<li><a data-icon="star" href="#">Help</a> </li>
+		</ul>
+	</div><!-- /navbar -->
+    </div>
+
+
+</div> 
+
+
+

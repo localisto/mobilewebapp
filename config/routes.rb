@@ -16,8 +16,24 @@ end
 
 
 
+#match 'aoiprompts/:id' => 'aoiprompts#index', :as => 'aoiprompts'
+#match 'aoiprompts/' => 'aoiprompts#create'
+#resources :aoiprompts
 
+#map.root :action => :index, :controller => :aoiquestions
+#  map.connect ':controller/:action/:id'
+#  map.connect ':controller/:action/:id.:format'
 
+match 'aoiprompts/vote' => 'aoiprompts#vote' 
+match 'aoiprompts/skip' => 'aoiprompts#skip' 
+
+resources :aoiquestions do
+resources :aoiprompts
+end
+
+resources :aoiquestions do
+resources :aoichoices
+end 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

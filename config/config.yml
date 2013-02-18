@@ -1,10 +1,16 @@
+# config/application.yml
+defaults: &defaults
+
 
 
 development:
-API_HOST: dfsd
-API_USER_EMAIL: email
-API_USER_PASSWORD: pw
+  <<: *defaults
+  api_host: http://pairwise-api.localisto.net
+  api_user_email: localisto@localisto.org
+  api_user_password: 8FA79096C01
 
 test:
+  <<: *defaults
 
 production:
+  <<: *defaults
