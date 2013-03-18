@@ -1,4 +1,11 @@
 MobileLocalisto::Application.routes.draw do
+
+match 'auth/:provider/callback', to: 'sessions#create'
+match 'auth/failure', to: redirect('/')
+match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :welcomes
+
   resources :homes
   
 
@@ -83,7 +90,7 @@ end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
- root :to => 'homes#index'
+ root :to => 'welcomes#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,46 +1,63 @@
-class User < ActiveRecord::Base
+class User 
+    
+    include ActiveModel::Validations
+    include ActiveModel::Conversion
+    extend ActiveModel::Naming
+    include HTTParty
+  
 
-  self.table_name = 'portalusers'
-  attr_accessible :username, :email, :password, :password_confirmation, :localisto_staff,  :is_active
+    attr_accessor :name
+  
+    @url = "https://api.parse.com/1"
+    parse_app_id = "WJgE08lahi3KC1q9uS8AfyKYebA97RJNLuy0lrwe"
+    parse_restapi_key = "MdEzo2VFdmLJnvngVttTjjocXPeGUoFdLkUlgKTL"
+    @header = {"X-Parse-Application-Id" => parse_app_id, "X-Parse-REST-API-Key" => parse_restapi_key, 'content-type' => 'application/json'} 
 
 
- has_many :portaluserassignments
- has_many :agencies, :through => :portaluserassignments
+      def initialize (id)
+        response = HTTParty.get("https://api.parse.com/1/users/" + id, :headers => {"X-Parse-Application-Id" => "WJgE08lahi3KC1q9uS8AfyKYebA97RJNLuy0lrwe", "X-Parse-REST-API-Key" => "MdEzo2VFdmLJnvngVttTjjocXPeGUoFdLkUlgKTL", 'content-type' => 'application/json'} )
+        @name = response.parsed_response['username']
+      end
+
+   
 
 
-  attr_accessor :password
-  before_save :prepare_password
 
+  def self.newuser
+    
+    body = {:username => "dustindffdbdfsm", :password => "testtes"}
+    response = HTTParty.post(@url + '/users/', :body => body.to_json, :headers => @header)
+    response
+  
+  end 
 
-  validates_presence_of :username
-  validates_uniqueness_of :username, :email, :allow_blank => true
-  validates_format_of :username, :with => /^[-\w\._@]+$/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
-  validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
-  validates_presence_of :password, :on => :create
-  validates_confirmation_of :password
-  validates_length_of :password, :minimum => 4, :allow_blank => true
+    def self.new_facebook_user(auth)
+     body = {:first_name => auth.extra.raw_info['first_name'],
+             :last_name => auth.extra.raw_info['last_name'],
+             :email => auth.extra.raw_info['email'],
+             :gender => auth.extra.raw_info['gender'],
+             :name => auth.extra.raw_info['name'],
+             :timezone => auth.extra.raw_info['timezone'],
+             :nickname => auth.extra.raw_info['nickname'],
+      :authData => {:facebook => {:id => auth.uid, :access_token => auth.credentials.token, :expiration_date => Time.at(auth.credentials.expires_at) }}}
+     response = HTTParty.post(@url + '/users/', :body => body.to_json, :headers => @header)
+     @header = @header.merge("X-Parse-Session-Token" => response['sessionToken'])
+     
+     #bodyii = {:hometown => response.hometown['name']}
+    #:location => response.info['location'],
+    #:image => response.info['image'],
+    #:first => response.info['first_name'],
+    #:last => response.info['last_name'],
+    #:email => response.info['email']
+    #}
 
-  # login can be either username or email address
-  def self.authenticate(login, pass)
-    user = find_by_username(login) || find_by_email(login)
-    return user if user && user.password_hash == user.encrypt_password(pass)
-  end
+      #bodyii = {first_name => @auth.extra.raw_info['first_name']}
 
-  def encrypt_password(pass)
-    BCrypt::Engine.hash_secret(pass, password_salt)
-  end
+    #responseii = HTTParty.put(@url + '/users/' + response['objectId'], :body => bodyii.to_json, :headers => @header)
 
-  private
-
-  def prepare_password
-    unless password.blank?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = encrypt_password(password)
+    response
     end
+
+
+
   end
-
-
-
-
-
-end
