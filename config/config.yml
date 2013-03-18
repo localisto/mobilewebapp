@@ -16,3 +16,8 @@ test:
 
 production:
   <<: *defaults
+  api_host: http://pairwise-api.localisto.net
+  api_user_email: localisto@localisto.org
+  api_user_password: 8FA79096C01
+  facebook_app_id: 553155921375315
+  facebook_secret: acb1c2dedac2c39913ccb82e2cb0666e
